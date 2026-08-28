@@ -29,8 +29,9 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid lg:grid-cols-[1fr_1.5fr] gap-16">
+      <section className="bg-black py-20 px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-16 lg:grid-cols-[1fr_1.5fr]">
           <div className="flex flex-col gap-10">
             <div>
               <p className="text-[#00b7cc] text-[10px] tracking-[0.35em] uppercase mb-4">
@@ -98,12 +99,13 @@ export default function ContactPage() {
             </div>
           </div>
 
-          <div className="bg-card border border-border p-8 md:p-10">
+          <div className="border border-white/10 bg-slate-900 p-8 md:p-10">
             <h3 className="font-serif text-foreground text-2xl mb-2">Send an Inquiry</h3>
             <p className="text-foreground/50 text-sm mb-8">
               Tell us about your event and we&apos;ll share availability and pricing details.
             </p>
             <InquiryForm />
+          </div>
           </div>
         </div>
       </section>

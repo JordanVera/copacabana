@@ -28,8 +28,10 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6 lg:px-8 max-w-7xl mx-auto">
-        <GalleryGrid />
+      <section className="bg-black px-6 py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <GalleryGrid />
+        </div>
       </section>
     </>
   );

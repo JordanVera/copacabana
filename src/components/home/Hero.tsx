@@ -19,7 +19,7 @@ export default function Hero() {
 
 
   return (
-    <section ref={ref} className="relative h-screen min-h-[600px] overflow-hidden">
+    <section ref={ref} className="relative h-screen min-h-[600px] overflow-hidden bg-black">
       <motion.div style={{ y }} className="absolute inset-0">
         <video
           autoPlay

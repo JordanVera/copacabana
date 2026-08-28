@@ -7,7 +7,7 @@ import SocialLinks from '@/components/layout/SocialLinks';
 
 export default function Footer() {
   return (
-    <footer className="bg-black text-white/80">
+    <footer className="border-t border-white/10 bg-slate-950 text-white/80">
       <div className="mx-auto max-w-7xl px-6 pt-16 pb-8 lg:px-8">
         <div className="mb-12 grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col gap-4">

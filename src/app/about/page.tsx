@@ -67,7 +67,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="bg-[#f0fdff] px-6 py-20 lg:px-8">
+      <section className="bg-slate-950 px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <p className="mb-4 text-[10px] tracking-[0.35em] text-[#00b7cc] uppercase">
@@ -81,7 +81,7 @@ export default function AboutPage() {
             {ABOUT_WHY.map((item, index) => (
               <article
                 key={item}
-                className="flex gap-4 border border-border bg-white p-8"
+                className="flex gap-4 border border-white/10 bg-slate-900 p-8"
               >
                 <span className="font-serif text-2xl text-[#00b7cc]/40">
                   {String(index + 1).padStart(2, '0')}
@@ -98,7 +98,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="px-6 py-20 lg:px-8">
+      <section className="bg-black px-6 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="relative aspect-[4/5] overflow-hidden sm:aspect-[5/6]">
             <Image
@@ -147,7 +147,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-y border-border bg-background px-6 py-20 lg:px-8">
+      <section className="border-y border-white/10 bg-slate-950 px-6 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="mb-4 text-[10px] tracking-[0.35em] text-[#00b7cc] uppercase">

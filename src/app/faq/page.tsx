@@ -49,14 +49,16 @@ export default function FaqPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-3xl px-6 py-20 lg:px-8">
-        <div className="mb-12 text-center">
+      <section className="bg-black px-6 py-20 lg:px-8">
+        <div className="mx-auto max-w-3xl">
+          <div className="mb-12 text-center">
           <p className="text-base leading-relaxed text-foreground/65 sm:text-lg">
             Everything you need to know about hosting your celebration at
             Charming Occasions — from packages and catering to booking a tour.
           </p>
+          </div>
+          <FaqAccordion />
         </div>
-        <FaqAccordion />
       </section>
 
       <CtaStrip />

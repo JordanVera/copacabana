@@ -28,10 +28,11 @@ export default function ReviewsPage() {
           <p className="mt-4 text-white/70 text-sm">{COMPANY.googleRating} ★ · {COMPANY.reviewCount} Google reviews</p>
         </div>
       </section>
-      <section className="py-20 px-6 lg:px-8 max-w-7xl mx-auto">
-        <div className="grid md:grid-cols-2 gap-8">
+      <section className="bg-black px-6 py-20 lg:px-8">
+        <div className="mx-auto max-w-7xl">
+          <div className="grid gap-8 md:grid-cols-2">
           {REVIEWS.map((review) => (
-            <blockquote key={review.id} className="bg-card border border-border p-8">
+            <blockquote key={review.id} className="border border-white/10 bg-slate-900 p-8">
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: review.rating }).map((_, n) => (
                   <Star key={n} size={14} className="fill-[#00b7cc] text-[#00b7cc]" />
@@ -44,11 +45,12 @@ export default function ReviewsPage() {
               </footer>
             </blockquote>
           ))}
-        </div>
-        <div className="mt-16 text-center">
+          </div>
+          <div className="mt-16 text-center">
           <a href={COMPANY.googleReviewsUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#00b7cc] text-white text-xs tracking-[0.2em] uppercase font-medium hover:opacity-90 transition-opacity">
             Read & Review on Google <ExternalLink size={14} />
           </a>
+          </div>
         </div>
       </section>
     </>

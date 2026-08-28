@@ -111,7 +111,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
         </div>
       </section>
 
-      <section className="px-6 py-20 lg:px-8">
+      <section className="bg-black px-6 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div>
             <p className="mb-4 text-[10px] tracking-[0.35em] text-[#00b7cc] uppercase">
@@ -151,7 +151,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
         </div>
       </section>
 
-      <section className="bg-[#f0fdff] px-6 py-20 lg:px-8">
+      <section className="bg-slate-950 px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mx-auto mb-14 max-w-3xl text-center">
             <p className="mb-4 text-[10px] tracking-[0.35em] text-[#00b7cc] uppercase">
@@ -167,7 +167,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
               return (
                 <article
                   key={feature.title}
-                  className="border border-border bg-white p-8"
+                  className="border border-white/10 bg-slate-900 p-8"
                 >
                   <div className="mb-5 flex items-center justify-between">
                     <div className="flex h-10 w-10 items-center justify-center border border-[#00b7cc]/30">
@@ -190,7 +190,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
         </div>
       </section>
 
-      <section className="px-6 py-20 lg:px-8">
+      <section className="bg-black px-6 py-20 lg:px-8">
         <div className="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
           <div className="relative order-2 aspect-[3/2] overflow-hidden lg:order-1">
             <Image
@@ -231,7 +231,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
       </section>
 
       {service.extraHeading && service.extraBody ? (
-        <section className="border-y border-border bg-background px-6 py-20 lg:px-8">
+        <section className="border-y border-white/10 bg-slate-950 px-6 py-20 lg:px-8">
           <div className="mx-auto max-w-4xl">
             {service.extraEyebrow ? (
               <p className="mb-4 text-[10px] tracking-[0.35em] text-[#00b7cc] uppercase">
@@ -274,7 +274,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
         </div>
       </section>
 
-      <section className="bg-[#f0fdff] px-6 py-20 lg:px-8">
+      <section className="bg-slate-950 px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-14 text-center">
             <p className="mb-4 text-[10px] tracking-[0.35em] text-[#00b7cc] uppercase">
@@ -286,7 +286,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
           </div>
           <div className="grid gap-8 md:grid-cols-3">
             {SERVICE_TESTIMONIALS.map((review) => (
-              <blockquote key={review.name} className="border border-border bg-white p-8">
+              <blockquote key={review.name} className="border border-white/10 bg-slate-900 p-8">
                 <div className="mb-4 flex gap-1">
                   {Array.from({ length: 5 }).map((_, n) => (
                     <Star
@@ -308,7 +308,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
         </div>
       </section>
 
-      <section className="px-6 py-20 lg:px-8">
+      <section className="bg-black px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-6xl">
           <div className="mb-10 text-center">
             <p className="mb-4 text-[10px] tracking-[0.35em] text-[#00b7cc] uppercase">
@@ -339,7 +339,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
         </div>
       </section>
 
-      <section className="border-t border-border px-6 py-20 lg:px-8">
+      <section className="border-t border-white/10 bg-slate-950 px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <div className="mb-12 text-center">
             <p className="mb-4 text-[10px] tracking-[0.35em] text-[#00b7cc] uppercase">
@@ -353,7 +353,7 @@ export default function ServicePage({ service }: { service: ServicePageData }) {
         </div>
       </section>
 
-      <section className="px-6 pb-20 lg:px-8">
+      <section className="bg-black px-6 pb-20 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="mb-10 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>

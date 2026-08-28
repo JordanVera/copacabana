@@ -8,7 +8,7 @@ import { ADD_ONS, PRICING_NOTES, VENUE_PACKAGES } from '@/lib/pricing';
 export default function PricingContent() {
   return (
     <>
-      <section className="px-6 py-20 lg:px-8">
+      <section className="bg-black px-6 py-20 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <p className="text-base leading-relaxed text-foreground/65 sm:text-lg">
             All-inclusive venue packages designed to simplify your celebration.
@@ -23,8 +23,8 @@ export default function PricingContent() {
               key={pkg.id}
               className={`flex flex-col border p-8 ${
                 pkg.highlighted
-                  ? 'border-[#00b7cc] bg-[#f0fdff] shadow-lg shadow-[#00b7cc]/10'
-                  : 'border-border bg-card'
+                  ? 'border-[#00b7cc] bg-slate-900 shadow-lg shadow-[#00b7cc]/10'
+                  : 'border-white/10 bg-slate-950'
               }`}
             >
               {pkg.highlighted ? (
@@ -66,7 +66,7 @@ export default function PricingContent() {
         </div>
       </section>
 
-      <section className="px-6 py-16 lg:px-8 border-t border-border">
+      <section className="border-t border-white/10 bg-slate-950 px-6 py-16 lg:px-8">
         <div className="mx-auto max-w-3xl">
           <h2 className="font-serif text-2xl text-foreground mb-6 text-center">
             Good to Know

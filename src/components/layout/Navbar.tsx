@@ -52,7 +52,7 @@ export default function Navbar() {
           'mx-auto flex items-center justify-between rounded-full border px-3 py-2 transition-[background-color,border-color,box-shadow,max-width,backdrop-filter] duration-500 ease-out sm:px-4',
           scrolled || mobileOpen
             ? 'max-w-5xl border-white/20 bg-black/70 shadow-lg shadow-black/40 backdrop-blur-xl backdrop-saturate-150'
-            : 'max-w-6xl border-transparent bg-transparent shadow-none',
+            : 'max-w-6xl border-transparent bg-black/0 shadow-none',
         )}
       >
         <Link href="/" className="flex shrink-0 items-center gap-2 pl-1">
@@ -61,7 +61,12 @@ export default function Navbar() {
             alt={COMPANY.name}
             width={160}
             height={48}
-            className={`h-12 w-auto sm:h-16 ${!scrolled && 'drop-shadow-[0_0_28px_rgba(0,183,204,0.45)]'}`}
+            className={cn(
+              'h-12 w-auto transition-[filter] duration-500 ease-out sm:h-16',
+              scrolled || mobileOpen
+                ? 'drop-shadow-none'
+                : 'drop-shadow-[0_0_28px_rgba(0,183,204,0.45)]',
+            )}
             priority
           />
         </Link>
@@ -170,7 +175,7 @@ export default function Navbar() {
           />
           <Link
             href="/contact"
-            className="hidden items-center rounded-full border border-white px-3.5 py-1.5 text-[10px] tracking-[0.2em] uppercase text-white transition-all duration-200 hover:bg-white hover:text-primary sm:inline-flex"
+            className="hidden items-center rounded-full border border-white px-3.5 py-1.5 text-[10px] tracking-[0.2em] uppercase text-white transition-all duration-200 hover:bg-[#00b7cc] hover:text-black sm:inline-flex"
           >
             Book a Tour
           </Link>
@@ -276,7 +281,7 @@ export default function Navbar() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="rounded-xl bg-white px-4 py-3 text-center text-sm font-semibold tracking-[0.15em] uppercase text-primary"
+                className="rounded-xl bg-[#00b7cc] px-4 py-3 text-center text-sm font-semibold tracking-[0.15em] uppercase text-black"
               >
                 Book a Tour
               </Link>

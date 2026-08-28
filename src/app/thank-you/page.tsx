@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function ThankYouPage() {
   return (
-    <section className="min-h-[70vh] flex flex-col items-center justify-center px-6 py-32 text-center">
+    <section className="flex min-h-[70vh] flex-col items-center justify-center bg-black px-6 py-32 text-center">
       <p className="text-[#00b7cc] text-[10px] tracking-[0.4em] uppercase mb-6">Message Received</p>
       <h1 className="font-serif text-foreground text-4xl sm:text-5xl mb-6">Thank You</h1>
       <p className="text-foreground/60 max-w-md leading-relaxed mb-10">

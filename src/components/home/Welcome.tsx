@@ -1,8 +1,10 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ABOUT_CONTENT, COMPANY, VENUE_HIGHLIGHTS } from '@/lib/data';
+import { ArrowRight } from 'lucide-react';
+import { ABOUT_CONTENT, COMPANY } from '@/lib/data';
 
 const anim = (delay: number) => ({
   initial: { opacity: 0, y: 32 },
@@ -13,67 +15,83 @@ const anim = (delay: number) => ({
 
 export default function Welcome() {
   return (
-    <section className="py-24 px-6 lg:px-8 bg-background">
-      <div className="max-w-5xl mx-auto">
-        <div className="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-16 items-start">
-          <motion.div {...anim(0)} className="flex flex-col gap-4">
-            <span className="text-[#00b7cc] text-[10px] tracking-[0.35em] uppercase">
-              Welcome
-            </span>
-            <div className="h-px w-16 bg-[#00b7cc]" />
-            <p className="text-xs tracking-[0.2em] uppercase text-foreground/40 mt-4">
-              {COMPANY.serviceArea}
-            </p>
-          </motion.div>
+    <section className="relative overflow-hidden bg-slate-950 px-6 py-24 sm:py-32 lg:px-8">
+      <div className="pointer-events-none absolute inset-0 editorial-grid opacity-20" />
+      <div className="relative mx-auto max-w-7xl">
+        <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
+          <div>
+            <motion.div {...anim(0)} className="mb-8 flex items-center gap-4">
+              <span className="text-[10px] tracking-[0.4em] text-accent uppercase">
+                Welcome to Copacabana
+              </span>
+              <span className="h-px w-16 bg-accent/60" />
+            </motion.div>
 
-          <div className="flex flex-col gap-6">
             <motion.h2
               {...anim(0.1)}
-              className="font-serif text-4xl sm:text-5xl leading-tight text-foreground"
+              className="max-w-3xl font-serif text-5xl leading-[0.98] text-white sm:text-6xl xl:text-7xl"
             >
-              Your premier venue for{' '}
-              <em className="italic text-[#00b7cc]">memorable celebrations.</em>
+              A Houston venue with
+              <em className="block text-accent italic">
+                room for the extraordinary.
+              </em>
             </motion.h2>
-            <motion.p {...anim(0.2)} className="text-foreground/65 leading-relaxed text-base sm:text-lg">
-              {ABOUT_CONTENT.intro} {ABOUT_CONTENT.body}
-            </motion.p>
-            <motion.p {...anim(0.3)} className="text-foreground/65 leading-relaxed text-base sm:text-lg">
-              {ABOUT_CONTENT.evolution}
-            </motion.p>
-            <motion.div {...anim(0.4)} className="flex gap-8 pt-4 border-t border-border">
-              {[
-                { number: `${COMPANY.maxGuests}`, label: 'Max Guests' },
-                { number: `${COMPANY.googleRating}★`, label: 'Google Rating' },
-                { number: `${COMPANY.reviewCount}+`, label: 'Reviews' },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <p className="font-serif text-2xl text-[#00b7cc]">{stat.number}</p>
-                  <p className="text-xs text-foreground/50 tracking-wide mt-0.5">{stat.label}</p>
-                </div>
-              ))}
+
+            <motion.div
+              {...anim(0.2)}
+              className="mt-9 grid gap-6 border-l border-accent/50 pl-6 sm:grid-cols-2 sm:gap-8"
+            >
+              <p className="text-base leading-8 text-white/65">
+                {ABOUT_CONTENT.intro}
+              </p>
+              <p className="text-sm leading-7 text-white/45">
+                {ABOUT_CONTENT.body}
+              </p>
             </motion.div>
-            <motion.div {...anim(0.5)}>
+
+            <motion.div
+              {...anim(0.3)}
+              className="mt-10 flex flex-wrap items-center gap-6"
+            >
               <Link
                 href="/about"
-                className="inline-flex items-center text-[#00b7cc] text-xs tracking-[0.2em] uppercase hover:underline underline-offset-4"
+                className="inline-flex items-center gap-3 bg-accent px-6 py-3.5 text-[10px] font-medium tracking-[0.22em] text-black uppercase transition-colors hover:bg-accent-light focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent"
               >
-                Learn More About Our Venue
+                Discover our story <ArrowRight aria-hidden="true" size={14} />
               </Link>
+              <span className="text-[10px] tracking-[0.2em] text-white/40 uppercase">
+                {COMPANY.serviceArea}
+              </span>
             </motion.div>
           </div>
-        </div>
 
-        <div className="grid sm:grid-cols-2 gap-6 mt-20">
-          {VENUE_HIGHLIGHTS.map((item, i) => (
-            <motion.div
-              key={item.title}
-              {...anim(0.1 * i)}
-              className="border border-border p-6"
-            >
-              <h3 className="font-serif text-xl text-foreground mb-2">{item.title}</h3>
-              <p className="text-sm text-foreground/60 leading-relaxed">{item.description}</p>
-            </motion.div>
-          ))}
+          <motion.div
+            {...anim(0.15)}
+            className="relative min-h-130 sm:min-h-165"
+          >
+            <div className="absolute inset-x-8 top-0 h-[85%] overflow-hidden sm:left-0 sm:right-16">
+              <Image
+                src="/photos/events-2026/copacabana-hall-event-space-houston-east-end-06.webp"
+                alt="Copacabana Hall prepared for an elegant Houston celebration"
+                fill
+                className="object-cover"
+                sizes="(max-width: 1024px) 90vw, 42vw"
+              />
+              <div className="absolute inset-0 bg-linear-to-t from-black/65 via-transparent to-black/10" />
+            </div>
+            <div className="absolute bottom-0 right-0 w-[70%] border border-white/10 bg-black/90 p-6 backdrop-blur-md sm:p-8">
+              <p className="font-serif text-2xl leading-tight text-white sm:text-3xl">
+                “A celebration should feel entirely
+                <span className="text-accent italic"> your own.</span>”
+              </p>
+              <p className="mt-5 text-[9px] tracking-[0.28em] text-white/40 uppercase">
+                Owner-operated · Houston East End
+              </p>
+            </div>
+            <span className="absolute left-0 top-10 hidden [writing-mode:vertical-rl] text-[9px] tracking-[0.35em] text-white/35 uppercase sm:block">
+              9,000 square feet · indoor + outdoor
+            </span>
+          </motion.div>
         </div>
       </div>
     </section>
