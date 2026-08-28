@@ -33,8 +33,8 @@ export default function FaqPage() {
 
       <section className="relative h-64 overflow-hidden sm:h-80">
         <Image
-          src="/gallery/gallery-10.jpeg"
-          alt="Charming Occasions frequently asked questions"
+          src="/gallery/gallery-74.jpg"
+          alt="Reception hall at Copacabana Hall"
           fill
           priority
           className="object-cover object-center"

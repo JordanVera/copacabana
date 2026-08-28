@@ -13,7 +13,14 @@ export default function ReviewsPage() {
   return (
     <>
       <section className="relative h-64 sm:h-80 overflow-hidden">
-        <Image src="/hero.jpg" alt="Reviews" fill priority className="object-cover object-center" sizes="100vw" />
+        <Image
+          src="/gallery/gallery-69.jpg"
+          alt="Wedding reception at Copacabana Hall"
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+        />
         <div className="absolute inset-0 bg-black/65" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
           <p className="text-[#00b7cc] text-[10px] tracking-[0.4em] uppercase mb-4">Guest Love</p>

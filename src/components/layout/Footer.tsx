@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, MapPin, Mail } from 'lucide-react';
 import { NAV_LINKS, COMPANY } from '@/lib/data';
-import { SERVICE_NAV } from '@/lib/services';
+import { SERVICE_NAV, SERVICE_CITIES } from '@/lib/services';
 import SocialLinks from '@/components/layout/SocialLinks';
 
 export default function Footer() {
@@ -97,6 +97,27 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+        </div>
+
+        <div className="mb-12 border-t border-white/20 pt-12">
+          <h4 className="mb-6 text-center text-xs tracking-[0.25em] text-white uppercase">
+            Serving Couples from 15 Houston-Area Cities
+          </h4>
+          <ul className="flex flex-wrap justify-center gap-x-6 gap-y-3">
+            {SERVICE_CITIES.map((city) => (
+              <li key={city.href}>
+                <Link
+                  href={city.href}
+                  className="text-sm transition-colors hover:text-white"
+                >
+                  {city.name}
+                  <span className="ml-1.5 text-xs text-white/40">
+                    {city.drive}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
 
         <div className="flex flex-col items-center justify-between gap-4 border-t border-white/20 pt-8 text-xs text-white/60 sm:flex-row">

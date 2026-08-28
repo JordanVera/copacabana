@@ -53,21 +53,21 @@ export type ServicePageData = {
 const p = (file: string) => `/photos/events-2026/${file}`;
 
 export const SERVICE_CITIES = [
-  { name: 'Houston', drive: '10 min' },
-  { name: 'Pasadena', drive: '15 min' },
-  { name: 'Pearland', drive: '30 min' },
-  { name: 'Sugar Land', drive: '30 min' },
-  { name: 'Katy', drive: '35 min' },
-  { name: 'Missouri City', drive: '30 min' },
-  { name: 'Friendswood', drive: '30 min' },
-  { name: 'Bellaire', drive: '20 min' },
-  { name: 'Deer Park', drive: '20 min' },
-  { name: 'La Porte', drive: '25 min' },
-  { name: 'Webster', drive: '35 min' },
-  { name: 'Stafford', drive: '30 min' },
-  { name: 'Baytown', drive: '30 min' },
-  { name: 'League City', drive: '35 min' },
-  { name: 'Humble', drive: '35 min' },
+  { name: 'Houston', drive: '10 min', href: '/wedding-venue-houston' },
+  { name: 'Pasadena', drive: '15 min', href: '/wedding-venue-pasadena' },
+  { name: 'Pearland', drive: '30 min', href: '/wedding-venue-pearland' },
+  { name: 'Sugar Land', drive: '30 min', href: '/wedding-venue-sugar-land' },
+  { name: 'Katy', drive: '35 min', href: '/wedding-venue-katy' },
+  { name: 'Missouri City', drive: '30 min', href: '/wedding-venue-missouri-city' },
+  { name: 'Friendswood', drive: '30 min', href: '/wedding-venue-friendswood' },
+  { name: 'Bellaire', drive: '20 min', href: '/wedding-venue-bellaire' },
+  { name: 'Deer Park', drive: '20 min', href: '/wedding-venue-deer-park' },
+  { name: 'La Porte', drive: '25 min', href: '/wedding-venue-la-porte' },
+  { name: 'Webster', drive: '35 min', href: '/wedding-venue-webster' },
+  { name: 'Stafford', drive: '30 min', href: '/wedding-venue-stafford' },
+  { name: 'Baytown', drive: '30 min', href: '/wedding-venue-baytown' },
+  { name: 'League City', drive: '35 min', href: '/wedding-venue-league-city' },
+  { name: 'Humble', drive: '35 min', href: '/wedding-venue-humble' },
 ] as const;
 
 export const SERVICE_TESTIMONIALS = [

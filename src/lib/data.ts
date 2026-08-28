@@ -47,10 +47,49 @@ export {
 } from './gallery-images';
 
 export const ABOUT_CONTENT = {
-  intro: '9,000 sq ft of versatile indoor and outdoor space at 7107 Navigation Blvd — Houston\'s East End destination for weddings, quinceañeras, and celebrations up to 350 guests.',
+  intro:
+    "Copacabana Hall is a 9,000 sq ft indoor and outdoor event venue at 7107 Navigation Blvd in Houston's East End. The venue holds 350 guests and hosts ceremonies and receptions at one address — eliminating the split-venue logistics that most Houston couples face.",
   body: 'Copacabana Hall combines covered indoor reception space with outdoor ceremony grounds at one address — no shuttles, no split locations. Owner-operated by Anthony Johnson, with direct access from inquiry through event night.',
-  evolution: 'With 10,000+ guests hosted in the past 12 months, 4.8 stars from 72 Google reviews, and 22,600 Instagram followers, Copacabana Hall is one of Houston\'s most trusted all-inclusive event venues.',
+  evolution:
+    "With 10,000+ guests hosted in the past 12 months, 4.8 stars from 72 Google reviews, and 22,600 Instagram followers, Copacabana Hall is one of Houston's most trusted all-inclusive event venues.",
 };
+
+export const ABOUT_WHY = [
+  '350-guest capacity — 3x the average Houston banquet hall',
+  'Ceremony + reception at one Navigation Blvd address',
+  'Bilingual English/Spanish planning support',
+  'Owner-operated by Anthony Johnson — personal event oversight',
+] as const;
+
+export const ABOUT_STATS = [
+  { value: '22,600', label: 'Instagram followers' },
+  { value: '500+', label: 'reviews across 6 platforms' },
+  { value: '4.8★', label: 'Google rating' },
+  { value: '10,000+', label: 'guests in past 12 months' },
+] as const;
+
+export const ANTHONY = {
+  name: 'Anthony Johnson',
+  role: 'Owner',
+  bio: 'Copacabana Hall is owner-operated by Anthony Johnson, who is directly involved from the initial inquiry through the event itself. Couples and event planners work directly with the owner — not a third-party coordinator or a corporate event manager.',
+};
+
+export const VENUE_HOURS = [
+  { days: 'Mon – Thu', hours: '10 AM – 10 PM' },
+  { days: 'Fri – Sun', hours: '10 AM – midnight' },
+] as const;
+
+export const VENUE_HOURS_NOTE =
+  'Event times may vary by package. Contact us for specifics.';
+
+export const VENUE_GLANCE = [
+  { label: 'Address', value: '7107 Navigation Blvd' },
+  { label: 'City', value: 'Houston TX 77011' },
+  { label: 'Size', value: '9,000 sq ft' },
+  { label: 'Capacity', value: '350 guests' },
+  { label: 'Owner', value: 'Anthony Johnson' },
+  { label: 'Phone', value: '(713) 282-9194' },
+] as const;
 
 export const VENUE_HIGHLIGHTS = [
   {

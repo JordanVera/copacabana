@@ -14,8 +14,8 @@ export default function PricingPage() {
     <>
       <section className="relative h-64 sm:h-80 overflow-hidden">
         <Image
-          src="/gallery/gallery-06.jpeg"
-          alt="Charming Occasions venue packages"
+          src="/gallery/gallery-90.jpg"
+          alt="Reception tables at Copacabana Hall"
           fill
           priority
           className="object-cover object-center"

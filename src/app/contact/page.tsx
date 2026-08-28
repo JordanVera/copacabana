@@ -15,8 +15,8 @@ export default function ContactPage() {
     <>
       <section className="relative h-64 sm:h-80 overflow-hidden">
         <Image
-          src="/gallery/gallery-08.jpeg"
-          alt="Contact Charming Occasions"
+          src="/gallery/gallery-09.jpg"
+          alt="Outdoor ceremony courtyard at Copacabana Hall"
           fill
           priority
           className="object-cover object-center"

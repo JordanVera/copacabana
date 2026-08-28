@@ -16,7 +16,7 @@ type CtaStripProps = {
 };
 
 export default function CtaStrip({
-  imageSrc = '/gallery/gallery-12.jpg',
+  imageSrc = '/gallery/gallery-04.jpg',
   imageAlt = 'Copacabana Hall event venue in Houston',
   eyebrow = 'Plan Your Celebration',
   heading = (

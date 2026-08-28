@@ -14,8 +14,8 @@ export default function GalleryPage() {
     <>
       <section className="relative h-64 sm:h-80 overflow-hidden">
         <Image
-          src="/gallery/gallery-01.jpg"
-          alt="Charming Occasions gallery"
+          src="/gallery/gallery-05.jpg"
+          alt="Copacabana Hall banquet floor from above"
           fill
           priority
           className="object-cover object-center"
