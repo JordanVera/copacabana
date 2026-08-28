@@ -51,6 +51,7 @@ export type ServicePageData = {
 };
 
 const p = (file: string) => `/photos/events-2026/${file}`;
+const s = (file: string) => `/services/${file}`;
 
 export const SERVICE_CITIES = [
   { name: 'Houston', drive: '10 min', href: '/wedding-venue-houston' },
@@ -58,7 +59,11 @@ export const SERVICE_CITIES = [
   { name: 'Pearland', drive: '30 min', href: '/wedding-venue-pearland' },
   { name: 'Sugar Land', drive: '30 min', href: '/wedding-venue-sugar-land' },
   { name: 'Katy', drive: '35 min', href: '/wedding-venue-katy' },
-  { name: 'Missouri City', drive: '30 min', href: '/wedding-venue-missouri-city' },
+  {
+    name: 'Missouri City',
+    drive: '30 min',
+    href: '/wedding-venue-missouri-city',
+  },
   { name: 'Friendswood', drive: '30 min', href: '/wedding-venue-friendswood' },
   { name: 'Bellaire', drive: '20 min', href: '/wedding-venue-bellaire' },
   { name: 'Deer Park', drive: '20 min', href: '/wedding-venue-deer-park' },
@@ -92,7 +97,7 @@ export const SERVICES: ServicePageData[] = [
     breadcrumb: 'Wedding Venue',
     eyebrow: 'Houston Wedding Venue',
     title: "Wedding Venue at Houston's Premier Event Hall — Copacabana Hall",
-    heroImage: p('copacabana-hall-wedding-ceremony-navigation-blvd-04.webp'),
+    heroImage: s('wedding-venue-copa.webp'),
     heroAlt: 'Wedding ceremony at Copacabana Hall Navigation Blvd Houston',
     lead: 'Copacabana Hall at 7107 Navigation Blvd is a 9,000 sq ft Houston wedding venue with capacity for 350 guests. Ceremony and reception at one address. Owner-operated by Anthony Johnson. 4.8-star rating from 72 Google reviews. 22,600 Instagram followers documenting real Houston weddings.',
     introHeading: 'Celebrate Your Dream Wedding at Copacabana Hall',
@@ -215,7 +220,7 @@ export const SERVICES: ServicePageData[] = [
     eyebrow: 'Houston Quinceañera Venue',
     title:
       "Quinceañera Venue at Houston's Premier Event Hall — Copacabana Hall",
-    heroImage: p('copacabana-hall-quinceanera-celebration-houston-02.webp'),
+    heroImage: s('quincera-venue.webp'),
     heroAlt: 'Quinceañera celebration at Copacabana Hall Houston',
     lead: 'Copacabana Hall at 7107 Navigation Blvd hosts quinceañeras for up to 350 guests in 9,000 sq ft of indoor and outdoor space. Bilingual English/Spanish planning support. Owner Anthony Johnson manages every event on-site. 4.8-star rating from 72 Google reviews.',
     introHeading: 'Celebrate Your Quinceañera in Style at Copacabana Hall',
@@ -352,7 +357,7 @@ export const SERVICES: ServicePageData[] = [
     eyebrow: 'Houston Birthday Venue',
     title:
       "Birthday Party Venue at Houston's Premier Event Hall — Copacabana Hall",
-    heroImage: p('copacabana-hall-birthday-party-venue-houston-tx.webp'),
+    heroImage: s('birthday-party-venue.jpg'),
     heroAlt: 'Birthday party venue at Copacabana Hall Houston TX',
     lead: 'Copacabana Hall at 7107 Navigation Blvd hosts birthday parties for up to 350 guests in 9,000 sq ft of indoor and outdoor space. Premium sound and lighting included. Owner-operated by Anthony Johnson. 4.8-star rating from 72 Google reviews.',
     introHeading: 'The Perfect Space for Memorable Celebrations',
@@ -477,7 +482,7 @@ export const SERVICES: ServicePageData[] = [
     eyebrow: '10 min from Houston',
     title:
       'Bar Mitzvah and Bat Mitzvah Venue Houston Families Drive To — Copacabana Hall Houston',
-    heroImage: p('copacabana-hall-bar-mitzvah-venue-houston-tx-16.webp'),
+    heroImage: s('bar-mitzvah-copa.webp'),
     heroAlt: 'Bar and bat mitzvah venue at Copacabana Hall Houston',
     lead: 'Houston families in the East End and Midtown are 10 minutes from 7107 Navigation Blvd via Navigation Blvd itself — 5 minutes from Minute Maid Park. Copacabana Hall at 7107 Navigation Blvd offers 9,000 sq ft indoor + outdoor space and capacity for 350 guests — ceremony and reception at one address.',
     introHeading: 'Why Houston Families Choose Copacabana Hall',
@@ -595,9 +600,7 @@ export const SERVICES: ServicePageData[] = [
     eyebrow: 'Houston Corporate Venue',
     title:
       "Corporate Event Venue at Houston's Premier Event Hall — Copacabana Hall",
-    heroImage: p(
-      'copacabana-hall-corporate-event-space-navigation-blvd-15.webp',
-    ),
+    heroImage: s('corporate-events.webp'),
     heroAlt: 'Corporate event space at Copacabana Hall Navigation Blvd',
     lead: 'Copacabana Hall at 7107 Navigation Blvd is a 9,000 sq ft Houston corporate event venue with capacity for 350 guests. AV system, projection, and uplighting included. Owner-operated by Anthony Johnson. 4.8-star rating from 72 Google reviews.',
     introHeading: 'A Professional Setting for Exceptional Business Events',
@@ -721,7 +724,7 @@ export const SERVICES: ServicePageData[] = [
     breadcrumb: 'Funeral Reception Hall',
     eyebrow: '10 min from Houston',
     title: 'The Houston Funeral Reception Hall Near Houston — Copacabana Hall',
-    heroImage: p('copacabana-hall-indoor-reception-hall-houston-14.webp'),
+    heroImage: s('reception-hall-copa.webp'),
     heroAlt: 'Indoor reception hall at Copacabana Hall Houston',
     lead: 'Houston families in the East End and Midtown are 10 minutes from 7107 Navigation Blvd via Navigation Blvd itself — 5 minutes from Minute Maid Park. Copacabana Hall at 7107 Navigation Blvd offers 9,000 sq ft indoor + outdoor space and capacity for 350 guests — ceremony and reception at one address.',
     introHeading: 'Why Houston Families Choose Copacabana Hall',
@@ -837,7 +840,7 @@ export const SERVICES: ServicePageData[] = [
     breadcrumb: 'Reception Hall',
     eyebrow: 'Houston Reception Hall',
     title: "Reception Hall at Houston's Premier Event Hall — Copacabana Hall",
-    heroImage: p('copacabana-hall-reception-hall-houston-east-end.webp'),
+    heroImage: s('reception-hall-white-floral-centerpieces-jacinto-city.webp'),
     heroAlt: 'Reception hall at Copacabana Hall Houston East End',
     lead: 'Copacabana Hall at 7107 Navigation Blvd hosts reception hall events for up to 350 guests. 9,000 sq ft indoor and outdoor at one address. Owner-operated by Anthony Johnson. 4.8-star rating from 72 Google reviews.',
     introHeading:
@@ -958,7 +961,7 @@ export const SERVICES: ServicePageData[] = [
     eyebrow: 'Houston Event Hall',
     title:
       "Event Hall Rental at Houston's Premier Event Hall — Copacabana Hall",
-    heroImage: p('copacabana-hall-event-hall-rental-houston.webp'),
+    heroImage: s('event-hall-copa.webp'),
     heroAlt: 'Event hall rental at Copacabana Hall Houston',
     lead: "Copacabana Hall at 7107 Navigation Blvd is Houston's premier event hall for every occasion. 9,000 sq ft indoor and outdoor space. 350-guest capacity. AV, uplighting, tables, and chairs included. Owner-operated by Anthony Johnson. 4.8-star rating from 72 Google reviews.",
     introHeading: "Houston's Event Hall for Every Celebration",
@@ -1078,7 +1081,7 @@ export const SERVICES: ServicePageData[] = [
     eyebrow: 'Houston Baby Shower Venue',
     title:
       "Baby Shower Venue at Houston's Premier Event Hall — Copacabana Hall",
-    heroImage: p('copacabana-hall-baby-shower-venue-houston-tx-17.webp'),
+    heroImage: s('baby-shower-venue.webp'),
     heroAlt: 'Baby shower venue at Copacabana Hall Houston TX',
     lead: 'Copacabana Hall at 7107 Navigation Blvd hosts baby showers for Houston families from intimate 50-person gatherings to 350-guest celebrations. Catering, decor, AV system, and uplighting are available in all inclusive packages. Owner Anthony Johnson operates the venue directly. 4.8-star rating from 72 Google reviews.',
     introHeading: "Houston's Baby Shower Venue at Navigation Blvd",
