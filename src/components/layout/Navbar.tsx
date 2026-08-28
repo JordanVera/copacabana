@@ -49,10 +49,10 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:pt-4">
       <nav
         className={cn(
-          'mx-auto flex items-center justify-between rounded-full border px-3 py-2 transition-all duration-300 sm:px-4',
-          scrolled
-            ? 'max-w-6xl border-white/20 bg-black/60 shadow-lg shadow-black/40 backdrop-blur-xl backdrop-saturate-150'
-            : 'max-w-6xl border-transparent bg-transparent',
+          'mx-auto flex items-center justify-between rounded-full border px-3 py-2 transition-[background-color,border-color,box-shadow,max-width,backdrop-filter] duration-500 ease-out sm:px-4',
+          scrolled || mobileOpen
+            ? 'max-w-5xl border-white/20 bg-black/70 shadow-lg shadow-black/40 backdrop-blur-xl backdrop-saturate-150'
+            : 'max-w-6xl border-transparent bg-transparent shadow-none',
         )}
       >
         <Link href="/" className="flex shrink-0 items-center gap-2 pl-1">
@@ -61,7 +61,7 @@ export default function Navbar() {
             alt={COMPANY.name}
             width={160}
             height={48}
-            className="h-12 w-auto sm:h-16"
+            className={`h-12 w-auto sm:h-16 ${!scrolled && 'drop-shadow-[0_0_28px_rgba(0,183,204,0.45)]'}`}
             priority
           />
         </Link>
@@ -196,7 +196,10 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.18 }}
-            className="mx-auto mt-2 max-w-6xl overflow-hidden rounded-3xl border border-white/20 bg-black/70 p-4 shadow-xl backdrop-blur-xl backdrop-saturate-150 lg:hidden"
+            className={cn(
+              'mx-auto mt-2 overflow-hidden rounded-3xl border border-white/20 bg-black/70 p-4 shadow-xl backdrop-blur-xl backdrop-saturate-150 lg:hidden',
+              scrolled || mobileOpen ? 'max-w-5xl' : 'max-w-6xl',
+            )}
           >
             <div className="flex max-h-[70vh] flex-col overflow-y-auto">
               {beforeServices.map((link) => (
