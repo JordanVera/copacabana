@@ -26,7 +26,7 @@ export default function AboutPage() {
         />
         <div className="absolute inset-0 bg-black/65" />
         <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6 pt-20">
-          <p className="text-[#da8990] text-[10px] tracking-[0.4em] uppercase mb-4">Our Story</p>
+          <p className="text-[#00b7cc] text-[10px] tracking-[0.4em] uppercase mb-4">Our Story</p>
           <h1 className="font-serif text-white text-5xl sm:text-6xl">About Us</h1>
         </div>
       </section>
@@ -35,7 +35,7 @@ export default function AboutPage() {
         <div className="flex flex-col gap-8">
           <h2 className="font-serif text-4xl sm:text-5xl leading-tight text-foreground">
             All-inclusive intimate venue in{' '}
-            <em className="italic text-[#da8990]">Webster, Texas.</em>
+            <em className="italic text-[#00b7cc]">Webster, Texas.</em>
           </h2>
           <p className="text-foreground/65 text-lg leading-relaxed">{ABOUT_CONTENT.intro}</p>
           <p className="text-foreground/65 text-lg leading-relaxed">{ABOUT_CONTENT.body}</p>
@@ -47,7 +47,7 @@ export default function AboutPage() {
               { number: '5★', label: `${COMPANY.reviewCount}+ Reviews` },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="font-serif text-2xl text-[#da8990]">{stat.number}</p>
+                <p className="font-serif text-2xl text-[#00b7cc]">{stat.number}</p>
                 <p className="text-sm text-foreground/50 mt-1">{stat.label}</p>
               </div>
             ))}
@@ -55,7 +55,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-20 px-6 lg:px-8 bg-[#faf3f4]">
+      <section className="py-20 px-6 lg:px-8 bg-[#f0fdff]">
         <div className="max-w-7xl mx-auto grid sm:grid-cols-2 gap-6">
           {VENUE_HIGHLIGHTS.map((item) => (
             <div key={item.title} className="bg-white border border-border p-8">
@@ -71,7 +71,7 @@ export default function AboutPage() {
       <section className="py-16 px-6 text-center">
         <Link
           href="/pricing"
-          className="inline-flex items-center gap-2 text-[#da8990] text-xs tracking-[0.2em] uppercase hover:gap-3 transition-all"
+          className="inline-flex items-center gap-2 text-[#00b7cc] text-xs tracking-[0.2em] uppercase hover:gap-3 transition-all"
         >
           View Venue Packages <ArrowRight size={12} />
         </Link>

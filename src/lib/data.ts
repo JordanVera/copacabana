@@ -1,28 +1,32 @@
 export const COMPANY = {
-  name: 'Charming Occasions',
-  shortName: 'Charming Occasions',
-  tagline: 'Intimate Event Venue',
-  phone: '832-973-0132',
-  phoneHref: '+18329730132',
-  email: 'charmingoccasionstx@gmail.com',
-  address: '100 E NASA Pkwy, Suite 309',
-  city: 'Webster, TX 77598',
-  serviceArea: 'Bay Area Houston',
-  maxGuests: 65,
-  instagram: 'https://www.instagram.com/explore/locations/341236090001433/charming-occasions/',
-  instagramHandle: '@charmingoccasions',
-  facebook: 'https://www.facebook.com/charmingoccasionsevtx',
-  website: 'https://www.charmingoccasionstx.com',
-  googleUrl:
-    'https://www.google.com/maps/search/?api=1&query=Charming+Occasions+100+E+NASA+Pkwy+Webster+TX+77598',
-  googleRating: 5,
-  reviewCount: 60,
+  name: 'Copacabana Hall',
+  shortName: 'Copacabana Hall',
+  tagline: 'Indoor & Outdoor Wedding Venue',
+  phone: '(713) 282-9194',
+  phoneHref: '+17132829194',
+  email: 'aj@copacabanahall.com',
+  address: '7107 Navigation Blvd',
+  city: 'Houston, TX 77011',
+  serviceArea: 'Houston\'s East End · 10 min from Downtown',
+  maxGuests: 350,
+  instagram: 'https://www.instagram.com/copacabanahall/',
+  instagramHandle: '@copacabanahall',
+  facebook: 'https://www.facebook.com/people/Copacabana-Hall/61566366613114/',
+  website: 'https://copacabanahall.com/',
+  googleUrl: 'https://www.google.com/maps/search/?api=1&query=Copacabana+Hall+7107+Navigation+Blvd+Houston+TX+77011',
+  googleReviewsUrl: 'https://www.google.com/maps/search/Copacabana+Hall+7107+Navigation+Blvd+Houston+reviews',
+  googleRating: 4.8,
+  reviewCount: 72,
 };
+
+export const ACCENT = '#00b7cc';
+export const ACCENT_HOVER = '#00d4ed';
 
 export const NAV_LINKS = [
   { label: 'Home', href: '/' },
   { label: 'About', href: '/about' },
   { label: 'Gallery', href: '/gallery' },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'Pricing', href: '/pricing' },
   { label: 'FAQ', href: '/faq' },
   { label: 'Contact', href: '/contact' },
@@ -30,9 +34,9 @@ export const NAV_LINKS = [
 
 export const GALLERY_CATEGORIES = [
   { id: 'all', label: 'All' },
-  { id: 'bridal-showers', label: 'Bridal Showers' },
-  { id: 'baby-showers', label: 'Baby Showers' },
-  { id: 'birthdays', label: 'Birthdays' },
+  { id: 'interior', label: 'Interior' },
+  { id: 'exterior', label: 'Outdoor' },
+  { id: 'events', label: 'Events' },
 ] as const;
 
 export type GalleryCategory = (typeof GALLERY_CATEGORIES)[number]['id'];
@@ -43,115 +47,78 @@ export {
 } from './gallery-images';
 
 export const ABOUT_CONTENT = {
-  intro:
-    'Welcome to Charming Occasions, your premier event venue in the heart of Bay Area Houston!',
-  body:
-    'Nestled in Webster on NASA Parkway, our intimate venue is perfect for gatherings of up to 65 guests. While we specialize in baby and bridal showers, we\'re passionate about hosting all types of events.',
-  evolution:
-    'At Charming Occasions, we offer all-inclusive packages that simplify your party planning. We handle every detail, so you can focus on enjoying your event without the stress or leftover supplies you\'ll never use again.',
+  intro: '9,000 sq ft of versatile indoor and outdoor space at 7107 Navigation Blvd — Houston\'s East End destination for weddings, quinceañeras, and celebrations up to 350 guests.',
+  body: 'Copacabana Hall combines covered indoor reception space with outdoor ceremony grounds at one address — no shuttles, no split locations. Owner-operated by Anthony Johnson, with direct access from inquiry through event night.',
+  evolution: 'With 10,000+ guests hosted in the past 12 months, 4.8 stars from 72 Google reviews, and 22,600 Instagram followers, Copacabana Hall is one of Houston\'s most trusted all-inclusive event venues.',
 };
 
 export const VENUE_HIGHLIGHTS = [
   {
+    title: '9,000 Sq Ft Indoor + Outdoor',
+    description: 'Ceremony and reception at one Navigation Blvd address — versatile indoor ballroom plus outdoor ceremony grounds.',
+  },
+  {
+    title: '350 Guest Capacity',
+    description: 'One of the largest event spaces in Houston\'s East End — seated or standing across flexible indoor and outdoor sections.',
+  },
+  {
     title: 'All-Inclusive Packages',
-    description:
-      'From furniture and décor to setup and breakdown — our packages cover the essentials so you can celebrate with ease.',
+    description: 'Wedding and events packages with catering options — owner-operated service from inquiry to event night.',
   },
   {
-    title: 'Intimate & Pinterest-Worthy',
-    description:
-      'A beautifully decorated, cozy space designed for showers, birthdays, and gatherings up to 65 guests.',
-  },
-  {
-    title: 'Flexible Catering',
-    description:
-      'Bring any caterer or food you like. Please note we do not have an onsite kitchen for food preparation.',
-  },
-  {
-    title: 'In-House Bartending',
-    description:
-      'All alcohol must be served by our in-house bartending service — add it to any package for $250.',
+    title: 'Central East End Location',
+    description: '7107 Navigation Blvd — 10 minutes from downtown, 5 minutes from Minute Maid Park, with on-site parking.',
   },
 ];
 
-export const REVIEWS = [
-  {
-    id: 1,
-    name: 'Heatherly D.',
-    event: 'Baby Shower',
-    rating: 5,
-    text: 'Carolina and Miss Soraya made our baby shower so memorable! We are forever thankful for all the little details! We know who to call every time we have an event!',
-  },
-  {
-    id: 2,
-    name: 'Guest Review',
-    event: 'Private Event',
-    rating: 5,
-    text: 'My event was absolutely gorgeous and well organized from start to finish. The event package that I chose included custom decor, set up and clean up. I did not have to worry about any details aside from providing my own food.',
-  },
-  {
-    id: 3,
-    name: 'Guest Review',
-    event: 'Celebration',
-    rating: 5,
-    text: 'One of the best places to have your events. Very friendly service and willing to help. When I came into the place, it looked so beautiful I could not ask for more. I got so many compliments from my guests.',
-  },
-] as const;
+export const AMENITIES = [
+  '9,000 Sq Ft Event Space',
+  'Indoor + Outdoor Ceremonies',
+  '350 Guest Capacity',
+  'All-Inclusive Packages',
+  'On-Site Parking',
+  'Catering Options',
+  'Wedding & Quinceañera Venue',
+  'Corporate Events',
+  'Owner-Operated',
+];
 
-export const ACCENT = '#da8990';
-export const ACCENT_HOVER = '#e8a8ae';
+export const REVIEWS = [
+  { id: 1, name: 'Google Reviewer', event: 'Wedding · Google Review', rating: 5, text: "Copacabana Hall exceeded every expectation for our wedding. The indoor and outdoor spaces are stunning, and having ceremony and reception at one address made the day seamless. Anthony and the team were incredible." },
+  { id: 2, name: 'Google Reviewer', event: 'Quinceañera · Google Review', rating: 5, text: "We hosted our daughter\'s quinceañera here and it was absolutely beautiful. The venue holds a large crowd comfortably and the decor options are endless. Highly recommend for any celebration." },
+  { id: 3, name: 'Google Reviewer', event: 'Corporate Event · Google Review', rating: 5, text: "Professional, spacious, and well maintained. Our corporate event for 200+ guests went flawlessly. Great parking, great location in the East End, and the all-inclusive packages simplified planning." },
+  { id: 4, name: 'Google Reviewer', event: 'Birthday Party · Google Review', rating: 5, text: "Rented Copacabana Hall for a milestone birthday and guests are still talking about it. The 9,000 sq ft space feels luxurious and the staff was responsive from booking through event night." },
+  { id: 5, name: 'Google Reviewer', event: 'Google Review', rating: 5, text: "One of the best event venues in Houston. Beautiful ballroom, gorgeous outdoor ceremony space, and owner-operated service that makes you feel like a priority — not a number." },
+  { id: 6, name: 'Google Reviewer', event: 'Google Review', rating: 4, text: "Large capacity venue with real flexibility for weddings and events. The Navigation Blvd location is easy for guests coming from all over Houston. Would definitely book again." },
+] as const;
 
 export type FaqItem = {
   question: string;
   answer: string;
-  link?: {
-    href: string;
-    label: string;
-  };
+  link?: { href: string; label: string };
 };
 
 export const FAQS: FaqItem[] = [
   {
-    question: 'Do you provide tables, chairs, decor, etc.?',
-    answer:
-      'We are an all-inclusive venue, our venue sits 65 guests comfortably. Our packages are designed to provide the very least stress possible.',
+    question: 'What are your rental rates?',
+    answer: 'All-inclusive wedding and events packages · Contact us or request a pricing pamphlet',
   },
   {
-    question: 'What do you require to reserve the date?',
-    answer:
-      'We require a $200 non-refundable retainer to hold your date. The remaining balance is due 3 weeks before the event.',
+    question: 'What is your guest capacity?',
+    answer: 'Our venue accommodates up to 350 guests depending on layout and event type.',
   },
   {
-    question: 'Is there a kitchen area?',
-    answer:
-      'We do not have a kitchen on site, all food must come prepared to serve.',
+    question: 'Where are you located?',
+    answer: 'We are located at 7107 Navigation Blvd, Houston, TX 77011.',
   },
   {
-    question: 'Can I bring in outside catering?',
-    answer:
-      'Yes, all caterers are welcome! Ask us about our in-house catering options as well.',
+    question: 'How do I book a tour?',
+    answer: 'Contact us through the inquiry form or call us directly to schedule a private tour of the space.',
   },
   {
-    question: 'Are food trucks allowed?',
-    answer:
-      'Yes. All food trucks require prior approval and must be stationed in the designated parking area.',
-  },
-  {
-    question: 'What is your alcohol policy?',
-    answer:
-      'We require the use of our in-house TABC certified and insured bar staff for all events with alcohol. No outside bar vendors are permitted. The client is to provide all the alcohol for the bar staff to serve.',
-  },
-  {
-    question: 'What is your cancellation policy?',
-    answer:
-      'If a client chooses to cancel their event, the client may opt to reschedule to a later date within 12 months of the original event date.',
-  },
-  {
-    question: 'How can we arrange a tour?',
-    answer: 'Tours are by appointment only.',
-    link: {
-      href: '/contact',
-      label: 'Schedule a tour',
-    },
+    question: 'Do you offer parking?',
+    answer: 'Yes — on-site and/or street parking is available. Contact us for details specific to your event date.',
   },
 ];
+
+export { VIDEOS_DATA as VIDEOS, EMBEDS_DATA as EMBEDS } from './videos';

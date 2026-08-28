@@ -10,73 +10,29 @@ export type PricingPackage = {
 
 export const VENUE_PACKAGES: PricingPackage[] = [
   {
-    id: 'package-a',
-    name: 'Package A',
-    price: '$1,150',
-    description:
-      'Essential venue rental with furniture, backdrop, and audio — perfect for a beautifully hosted gathering.',
-    features: [
-      '4-hour venue rental (setup, breakdown, and event time)',
-      '8 rectangle tables',
-      '65 gold Chiavari chairs',
-      '2 cocktail tables for desserts',
-      '2 rectangle tables for food',
-      'Wooden wall backdrop',
-      'Bluetooth speaker',
-    ],
-  },
-  {
-    id: 'package-b',
-    name: 'Package B',
-    price: '$1,400',
+    id: 'wedding',
+    name: 'Wedding Packages',
+    price: 'Contact Us',
+    description: 'All-inclusive wedding packages with ceremony and reception at 7107 Navigation Blvd.',
     highlighted: true,
-    description:
-      'Everything in Package A plus styled décor, linens, and signature details that make your celebration shine.',
-    features: [
-      'Everything from Package A',
-      'Table linens and table runners',
-      'Custom centerpieces',
-      'Decorative charger plates',
-      'Balloon garland (up to 3 colors, 16 feet)',
-      'Neon sign — Oh Baby, Happy Birthday, or Bride to Be',
-      'Guest of honor egg chair',
-      'Welcome sign',
-    ],
+    features: ["Indoor + outdoor ceremony options", "Up to 350 guests", "Catering packages available", "Owner-operated planning support"],
   },
   {
-    id: 'package-c',
-    name: 'Package C',
-    price: '$1,600',
-    description:
-      'Our most complete package — décor, dinnerware, and a drink station for a fully styled celebration.',
-    features: [
-      'Everything from Package A and B',
-      'Gold plastic dinnerware for up to 65 guests',
-      'Dinner plates, dessert plates, and silverware',
-      'Drink station with sweet tea, water, and lemonade (2 gallons each)',
-      'Cups included',
-    ],
+    id: 'quince',
+    name: 'Quinceañera Packages',
+    price: 'Contact Us',
+    description: 'Full-service quinceañera celebrations in Houston\'s East End.',
+    features: ["Ballroom + outdoor space", "Flexible decor", "All-inclusive options", "Large guest capacity"],
+  },
+  {
+    id: 'corporate',
+    name: 'Corporate & Private Events',
+    price: 'Contact Us',
+    description: 'Corporate events, birthdays, bar mitzvahs, baby showers, and more.',
+    features: ["9,000 sq ft flexible layout", "AV-ready space", "Catering coordination", "Central Houston location"],
   },
 ];
 
-export const ADD_ONS: PricingPackage[] = [
-  {
-    id: 'bartending',
-    name: 'Bartending Service',
-    price: '$250',
-    description:
-      'Professional in-house bartending for events serving alcohol. All alcohol must be served by our bartending team.',
-    features: [
-      '4-hour bartending service',
-      'Host provides alcohol and mixers',
-      'Required for any event serving alcohol',
-    ],
-  },
-];
+export const ADD_ONS: PricingPackage[] = [];
 
-export const PRICING_NOTES = [
-  'We welcome you to bring any type of food or caterer you would like.',
-  'Please note that we do not have a kitchen onsite for food preparation.',
-  'All alcohol must be served by our in-house bartending service.',
-  'Packages are designed for gatherings of up to 65 guests.',
-];
+export const PRICING_NOTES = ["Pricing varies by date, guest count, and package tier \u2014 contact Anthony Johnson for current rates.", "Wedding and events pricing pamphlets available upon request.", "Ceremony and reception at one address \u2014 no venue shuttles required.", "Tours available Monday through Sunday \u00b7 7107 Navigation Blvd, Houston TX 77011."];

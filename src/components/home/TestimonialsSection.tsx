@@ -2,14 +2,14 @@
 
 import { motion } from 'framer-motion';
 import { Star } from 'lucide-react';
-import { REVIEWS } from '@/lib/data';
+import { REVIEWS, COMPANY } from '@/lib/data';
 
 export default function TestimonialsSection() {
   return (
-    <section className="py-24 px-6 lg:px-8 bg-[#faf3f4]">
+    <section className="py-24 px-6 lg:px-8 bg-[#f0fdff]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <p className="text-[#da8990] text-[10px] tracking-[0.35em] uppercase mb-4">
+          <p className="text-[#00b7cc] text-[10px] tracking-[0.35em] uppercase mb-4">
             Guest Book
           </p>
           <h2 className="font-serif text-foreground text-4xl sm:text-5xl">
@@ -29,7 +29,7 @@ export default function TestimonialsSection() {
             >
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: review.rating }).map((_, n) => (
-                  <Star key={n} size={14} className="fill-[#da8990] text-[#da8990]" />
+                  <Star key={n} size={14} className="fill-[#00b7cc] text-[#00b7cc]" />
                 ))}
               </div>
               <p className="font-serif text-lg leading-snug text-foreground">
@@ -43,6 +43,17 @@ export default function TestimonialsSection() {
               </footer>
             </motion.blockquote>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <a
+            href={COMPANY.googleReviewsUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-3.5 border border-border text-foreground/70 text-xs tracking-[0.2em] uppercase hover:border-[var(--accent)] hover:text-[var(--accent)] transition-all"
+          >
+            Read All {COMPANY.reviewCount} Google Reviews
+          </a>
         </div>
       </div>
     </section>

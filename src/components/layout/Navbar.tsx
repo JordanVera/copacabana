@@ -5,15 +5,22 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Phone } from 'lucide-react';
+import { ChevronDown, Menu, Phone, X } from 'lucide-react';
 import { NAV_LINKS, COMPANY } from '@/lib/data';
+import { SERVICE_NAV } from '@/lib/services';
 import { cn } from '@/lib/utils';
 import SocialLinks from '@/components/layout/SocialLinks';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
+
+  const serviceActive = SERVICE_NAV.some(
+    (item) => pathname === item.href || pathname.startsWith(`${item.href}/`),
+  );
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -24,6 +31,8 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false);
+    setServicesOpen(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -33,14 +42,17 @@ export default function Navbar() {
     };
   }, [mobileOpen]);
 
+  const beforeServices = NAV_LINKS.slice(0, 2);
+  const afterServices = NAV_LINKS.slice(2);
+
   return (
     <header className="fixed inset-x-0 top-0 z-50 px-4 pt-3 sm:pt-4">
       <nav
         className={cn(
-          'mx-auto flex items-center justify-between rounded-full border bg-primary px-3 py-2 transition-all duration-300 sm:px-4',
+          'mx-auto flex items-center justify-between rounded-full border px-3 py-2 transition-all duration-300 sm:px-4',
           scrolled
-            ? 'max-w-5xl border-white/20 shadow-lg shadow-[#da8990]/30'
-            : 'max-w-6xl border-transparent',
+            ? 'max-w-6xl border-white/20 bg-black/60 shadow-lg shadow-black/40 backdrop-blur-xl backdrop-saturate-150'
+            : 'max-w-6xl border-transparent bg-transparent',
         )}
       >
         <Link href="/" className="flex shrink-0 items-center gap-2 pl-1">
@@ -54,33 +66,100 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="hidden items-center gap-1 lg:flex">
-          {NAV_LINKS.map((link) => {
-            const isActive =
-              pathname === link.href ||
-              (link.href !== '/' && pathname.startsWith(`${link.href}/`));
+        <div className="hidden items-center gap-0.5 lg:flex">
+          {beforeServices.map((link) => (
+            <NavItem
+              key={link.href}
+              href={link.href}
+              label={link.label}
+              pathname={pathname}
+            />
+          ))}
 
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
+          <div
+            className="relative"
+            onMouseEnter={() => setServicesOpen(true)}
+            onMouseLeave={() => setServicesOpen(false)}
+            onFocus={() => setServicesOpen(true)}
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget as Node)) {
+                setServicesOpen(false);
+              }
+            }}
+          >
+            <button
+              type="button"
+              aria-expanded={servicesOpen}
+              aria-haspopup="menu"
+              onClick={() => setServicesOpen((value) => !value)}
+              className={cn(
+                'group relative inline-flex items-center gap-1 rounded-full px-2.5 py-1.5 text-[11px] font-medium tracking-widest uppercase transition-colors',
+                serviceActive ? 'text-white' : 'text-white/80 hover:text-white',
+              )}
+            >
+              Services
+              <ChevronDown
+                size={12}
                 className={cn(
-                  'group relative rounded-full px-2.5 py-1.5 text-[11px] font-medium tracking-widest uppercase transition-colors xl:px-3',
-                  isActive ? 'text-white' : 'text-white/80 hover:text-white',
+                  'transition-transform duration-200',
+                  servicesOpen ? 'rotate-180' : '',
                 )}
-              >
-                {link.label}
-                <span
-                  className={cn(
-                    'absolute inset-x-3.5 -bottom-0.5 h-px bg-white transition-transform duration-300',
-                    isActive
-                      ? 'scale-x-100'
-                      : 'scale-x-0 group-hover:scale-x-100',
-                  )}
-                />
-              </Link>
-            );
-          })}
+              />
+              <span
+                className={cn(
+                  'absolute inset-x-3.5 -bottom-0.5 h-px bg-white transition-transform duration-300',
+                  serviceActive || servicesOpen
+                    ? 'scale-x-100'
+                    : 'scale-x-0 group-hover:scale-x-100',
+                )}
+              />
+            </button>
+
+            <AnimatePresence>
+              {servicesOpen ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: 0.16 }}
+                  className="absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 pt-3"
+                >
+                  <div
+                    role="menu"
+                    className="overflow-hidden rounded-2xl border border-white/15 bg-black/85 p-2 shadow-2xl shadow-black/50 backdrop-blur-xl"
+                  >
+                    {SERVICE_NAV.map((item) => {
+                      const isActive = pathname === item.href;
+                      return (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          role="menuitem"
+                          className={cn(
+                            'block rounded-xl px-3 py-2.5 text-sm transition-colors',
+                            isActive
+                              ? 'bg-white/10 text-white'
+                              : 'text-white/75 hover:bg-white/10 hover:text-white',
+                          )}
+                        >
+                          {item.label}
+                        </Link>
+                      );
+                    })}
+                  </div>
+                </motion.div>
+              ) : null}
+            </AnimatePresence>
+          </div>
+
+          {afterServices.map((link) => (
+            <NavItem
+              key={link.href}
+              href={link.href}
+              label={link.label}
+              pathname={pathname}
+            />
+          ))}
         </div>
 
         <div className="flex items-center gap-1.5">
@@ -117,30 +196,78 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.18 }}
-            className={cn(
-              'mx-auto mt-2 overflow-hidden rounded-3xl border border-white/20 bg-primary p-4 shadow-xl lg:hidden',
-              scrolled ? 'max-w-5xl' : 'max-w-6xl',
-            )}
+            className="mx-auto mt-2 max-w-6xl overflow-hidden rounded-3xl border border-white/20 bg-black/70 p-4 shadow-xl backdrop-blur-xl backdrop-saturate-150 lg:hidden"
           >
-            <div className="flex flex-col">
-              {NAV_LINKS.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setMobileOpen(false)}
-                    className={cn(
-                      'rounded-xl px-3 py-2.5 text-sm font-medium transition hover:bg-white/10',
-                      isActive
-                        ? 'text-white'
-                        : 'text-white/80 hover:text-white',
-                    )}
+            <div className="flex max-h-[70vh] flex-col overflow-y-auto">
+              {beforeServices.map((link) => (
+                <MobileNavItem
+                  key={link.href}
+                  href={link.href}
+                  label={link.label}
+                  pathname={pathname}
+                  onClick={() => setMobileOpen(false)}
+                />
+              ))}
+
+              <button
+                type="button"
+                onClick={() => setMobileServicesOpen((value) => !value)}
+                className={cn(
+                  'flex items-center justify-between rounded-xl px-3 py-2.5 text-left text-sm font-medium transition hover:bg-white/10',
+                  serviceActive
+                    ? 'text-white'
+                    : 'text-white/80 hover:text-white',
+                )}
+                aria-expanded={mobileServicesOpen}
+              >
+                Services
+                <ChevronDown
+                  size={16}
+                  className={cn(
+                    'transition-transform duration-200',
+                    mobileServicesOpen ? 'rotate-180' : '',
+                  )}
+                />
+              </button>
+              <AnimatePresence>
+                {mobileServicesOpen ? (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.18 }}
+                    className="overflow-hidden"
                   >
-                    {link.label}
-                  </Link>
-                );
-              })}
+                    <div className="mb-1 ml-2 flex flex-col border-l border-white/15 pl-2">
+                      {SERVICE_NAV.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          onClick={() => setMobileOpen(false)}
+                          className={cn(
+                            'rounded-xl px-3 py-2 text-sm transition hover:bg-white/10',
+                            pathname === item.href
+                              ? 'text-white'
+                              : 'text-white/70 hover:text-white',
+                          )}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                ) : null}
+              </AnimatePresence>
+
+              {afterServices.map((link) => (
+                <MobileNavItem
+                  key={link.href}
+                  href={link.href}
+                  label={link.label}
+                  pathname={pathname}
+                  onClick={() => setMobileOpen(false)}
+                />
+              ))}
             </div>
             <div className="mt-3 grid gap-2 border-t border-white/10 pt-3">
               <Link
@@ -162,5 +289,63 @@ export default function Navbar() {
         ) : null}
       </AnimatePresence>
     </header>
+  );
+}
+
+function NavItem({
+  href,
+  label,
+  pathname,
+}: {
+  href: string;
+  label: string;
+  pathname: string;
+}) {
+  const isActive =
+    pathname === href || (href !== '/' && pathname.startsWith(`${href}/`));
+
+  return (
+    <Link
+      href={href}
+      className={cn(
+        'group relative rounded-full px-2.5 py-1.5 text-[11px] font-medium tracking-widest uppercase transition-colors',
+        isActive ? 'text-white' : 'text-white/80 hover:text-white',
+      )}
+    >
+      {label}
+      <span
+        className={cn(
+          'absolute inset-x-3.5 -bottom-0.5 h-px bg-white transition-transform duration-300',
+          isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100',
+        )}
+      />
+    </Link>
+  );
+}
+
+function MobileNavItem({
+  href,
+  label,
+  pathname,
+  onClick,
+}: {
+  href: string;
+  label: string;
+  pathname: string;
+  onClick: () => void;
+}) {
+  const isActive = pathname === href;
+
+  return (
+    <Link
+      href={href}
+      onClick={onClick}
+      className={cn(
+        'rounded-xl px-3 py-2.5 text-sm font-medium transition hover:bg-white/10',
+        isActive ? 'text-white' : 'text-white/80 hover:text-white',
+      )}
+    >
+      {label}
+    </Link>
   );
 }

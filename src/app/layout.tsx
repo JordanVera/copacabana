@@ -20,11 +20,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: `${COMPANY.name} — Webster, TX Event Venue`,
+  title: 'Copacabana Hall — Houston Event Venue',
   description:
     'All-inclusive intimate event venue in Webster, Texas. Bridal showers, baby showers, and celebrations for up to 65 guests.',
   keywords:
-    'Charming Occasions, event venue Webster TX, bridal shower venue Houston, baby shower venue Bay Area Houston',
+    'Copacabana Hall, event venue Webster TX, bridal shower venue Houston, baby shower venue Bay Area Houston',
   openGraph: {
     title: `${COMPANY.name} | ${COMPANY.tagline}`,
     description:

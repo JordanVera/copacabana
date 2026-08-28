@@ -1,28 +1,14 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import { useRef } from 'react';
 import Link from 'next/link';
-import {
-  AnimatePresence,
-  motion,
-  useScroll,
-  useTransform,
-} from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
 import { COMPANY } from '@/lib/data';
 
-const SLIDE_DURATION_MS = 7000;
-
-const HERO_SLIDES = [
-  { src: '/hero.jpg', alt: 'Pop the Champagne bridal shower at Charming Occasions' },
-  { src: '/gallery/gallery-03.jpeg', alt: 'Wildflower baby shower decor' },
-  { src: '/gallery/gallery-05.jpeg', alt: 'Intimate dinner for 65 guests' },
-] as const;
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start start', 'end start'],
@@ -31,40 +17,21 @@ export default function Hero() {
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((index) => (index + 1) % HERO_SLIDES.length);
-    }, SLIDE_DURATION_MS);
-    return () => clearInterval(timer);
-  }, []);
-
-  const slide = HERO_SLIDES[currentIndex];
 
   return (
     <section ref={ref} className="relative h-screen min-h-[600px] overflow-hidden">
       <motion.div style={{ y }} className="absolute inset-0">
-        <AnimatePresence mode="sync">
-          <motion.div
-            key={currentIndex}
-            className="absolute inset-0"
-            initial={{ opacity: 0, scale: 1.05 }}
-            animate={{ opacity: 1, scale: 1.12 }}
-            exit={{ opacity: 0 }}
-            transition={{
-              opacity: { duration: 1.5, ease: 'easeInOut' },
-              scale: { duration: SLIDE_DURATION_MS / 1000, ease: 'linear' },
-            }}
-          >
-            <Image
-              src={slide.src}
-              alt={slide.alt}
-              fill
-              priority={currentIndex === 0}
-              className="object-cover object-center"
-              sizes="100vw"
-            />
-          </motion.div>
-        </AnimatePresence>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/hero.webp"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          aria-hidden
+        >
+          <source src="/hero.mp4" type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70" />
       </motion.div>
 
@@ -76,9 +43,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-[#da8990] text-xs tracking-[0.4em] uppercase mb-6"
+          className="text-[#00b7cc] text-xs tracking-[0.4em] uppercase mb-6"
         >
-          Webster, Texas · Up to {COMPANY.maxGuests} Guests
+          Houston, Texas · Up to {COMPANY.maxGuests} Guests
         </motion.p>
 
         <motion.h1
@@ -87,8 +54,7 @@ export default function Hero() {
           transition={{ duration: 0.9, delay: 0.35 }}
           className="font-serif text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl leading-[1.05] tracking-tight max-w-4xl"
         >
-          All-Inclusive{' '}
-          <em className="italic text-[#da8990]">Intimate Venue</em>
+          Indoor & Outdoor <em className="italic text-[#00b7cc]">Wedding Venue</em>
         </motion.h1>
 
         <motion.p
@@ -97,8 +63,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.55 }}
           className="mt-6 text-white/75 text-base sm:text-lg max-w-xl leading-relaxed"
         >
-          Bridal showers, baby showers, and celebrations in the heart of Bay
-          Area Houston — with all-inclusive packages that make planning effortless.
+          9,000 sq ft of versatile indoor and outdoor space at 7107 Navigation Blvd — Houston&apos;s East End destination for weddings, quinceañeras, and celebrations up to 350 guests.
         </motion.p>
 
         <motion.div
@@ -109,13 +74,13 @@ export default function Hero() {
         >
           <Link
             href="/contact"
-            className="px-8 py-3.5 bg-[#da8990] text-black text-xs tracking-[0.2em] uppercase font-medium hover:bg-[#e8a8ae] transition-colors duration-200"
+            className="px-8 py-3.5 bg-[#00b7cc] text-black text-xs tracking-[0.2em] uppercase font-medium hover:bg-[#00d4ed] transition-colors duration-200"
           >
             Book a Tour
           </Link>
           <Link
             href="/pricing"
-            className="px-8 py-3.5 border border-white/50 text-white text-xs tracking-[0.2em] uppercase hover:border-[#da8990] hover:text-[#da8990] transition-all duration-200"
+            className="px-8 py-3.5 border border-white/50 text-white text-xs tracking-[0.2em] uppercase hover:border-[#00b7cc] hover:text-[#00b7cc] transition-all duration-200"
           >
             View Pricing
           </Link>
