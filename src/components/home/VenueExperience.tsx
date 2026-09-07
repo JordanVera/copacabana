@@ -5,8 +5,7 @@ import { ABOUT_WHY, AMENITIES } from '@/lib/data';
 
 const indoorImage =
   '/photos/events-2026/copacabana-hall-indoor-reception-hall-houston-35.webp';
-const outdoorImage =
-  '/photos/events-2026/copacabana-hall-outdoor-wedding-ceremony-houston-13.webp';
+const outdoorImage = '/gallery/gallery-09.jpg';
 
 export default function VenueExperience() {
   return (
@@ -53,17 +52,27 @@ export default function VenueExperience() {
             </p>
             <h2 className="font-serif text-4xl leading-[1.02] text-white sm:text-6xl">
               Begin under the sky.
-              <em className="block text-accent italic">Celebrate into the night.</em>
+              <em className="block text-accent italic">
+                Celebrate into the night.
+              </em>
             </h2>
             <p className="mt-7 max-w-xl text-base leading-8 text-white/60">
-              Move naturally from an outdoor ceremony to an elegant indoor reception,
-              with no shuttles, split venues, or lost moments in between.
+              Move naturally from an outdoor ceremony to an elegant indoor
+              reception, with no shuttles, split venues, or lost moments in
+              between.
             </p>
 
             <ul className="mt-9 grid gap-x-8 gap-y-4 border-y border-white/10 py-8 sm:grid-cols-2">
               {ABOUT_WHY.map((item) => (
-                <li key={item} className="flex gap-3 text-sm leading-6 text-white/70">
-                  <Check aria-hidden="true" className="mt-1 shrink-0 text-accent" size={15} />
+                <li
+                  key={item}
+                  className="flex gap-3 text-sm leading-6 text-white/70"
+                >
+                  <Check
+                    aria-hidden="true"
+                    className="mt-1 shrink-0 text-accent"
+                    size={15}
+                  />
                   {item}
                 </li>
               ))}

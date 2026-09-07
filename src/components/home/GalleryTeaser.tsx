@@ -6,10 +6,19 @@ import { motion } from 'framer-motion';
 import { GALLERY_IMAGES } from '@/lib/data';
 import { ArrowRight, Expand } from 'lucide-react';
 
+const TILE_CLASS = [
+  'col-span-2 row-span-2 min-h-70 sm:min-h-100',
+  'min-h-40 sm:min-h-48',
+  'min-h-40 sm:min-h-48',
+  'row-span-2 min-h-70 sm:min-h-100',
+  'min-h-40 sm:min-h-48',
+  'min-h-40 sm:min-h-48',
+  'row-span-2 min-h-70 sm:min-h-100',
+  'col-span-2 min-h-40 sm:min-h-48',
+] as const;
+
 export default function GalleryTeaser() {
-  const images = GALLERY_IMAGES.filter(
-    (img) => 'featured' in img && img.featured,
-  );
+  const images = GALLERY_IMAGES.filter((img) => img.featured).slice(0, 8);
 
   return (
     <section className="bg-slate-950 px-6 py-24 sm:py-32 lg:px-8">
@@ -32,13 +41,15 @@ export default function GalleryTeaser() {
               className="max-w-2xl font-serif text-4xl leading-[0.98] text-white sm:text-6xl lg:text-7xl"
             >
               The atmosphere,
-              <em className="block text-accent italic">before the first guest arrives.</em>
+              <em className="block text-accent italic">
+                before the first guest arrives.
+              </em>
             </motion.h2>
           </div>
           <div className="md:justify-self-end">
             <p className="mb-6 max-w-sm text-sm leading-7 text-white/50">
-              Explore the details, scale, and character that make every corner of
-              Copacabana Hall camera-ready.
+              Explore the details, scale, and character that make every corner
+              of Copacabana Hall camera-ready.
             </p>
             <Link
               href="/gallery"
@@ -49,23 +60,11 @@ export default function GalleryTeaser() {
           </div>
         </div>
 
-        <div className="grid auto-rows-47.5 grid-cols-2 gap-3 sm:auto-rows-65 lg:grid-cols-4">
+        <div className="grid grid-flow-dense grid-cols-2 gap-3 lg:grid-cols-4">
           {images.map((img, i) => (
-            <motion.div
+            <div
               key={img.id}
-              initial={{ opacity: 0, scale: 0.96 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-              className={`group relative overflow-hidden ${
-                i === 0
-                  ? 'col-span-2 row-span-2'
-                  : i === 3 || i === 6
-                    ? 'row-span-2'
-                    : i === 7
-                      ? 'col-span-2'
-                      : ''
-              }`}
+              className={`group relative overflow-hidden bg-slate-900 ${TILE_CLASS[i] ?? 'min-h-40 sm:min-h-48'}`}
             >
               <Link
                 href="/gallery"
@@ -76,12 +75,13 @@ export default function GalleryTeaser() {
                   src={img.src}
                   alt={img.alt}
                   fill
-                  className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105 group-focus-within:scale-105"
+                  priority
                   sizes={
-                    i === 0
+                    i === 0 || i === 7
                       ? '(max-width: 1024px) 100vw, 50vw'
                       : '(max-width: 1024px) 50vw, 25vw'
                   }
+                  className="object-cover transition-transform duration-1000 ease-out group-hover:scale-105 group-focus-within:scale-105"
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-black/70 via-transparent to-transparent opacity-70 transition-opacity group-hover:opacity-100" />
                 <div className="absolute inset-x-0 bottom-0 flex translate-y-2 items-end justify-between gap-4 p-4 opacity-80 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:translate-y-0 group-focus-within:opacity-100 sm:p-6">
@@ -96,7 +96,7 @@ export default function GalleryTeaser() {
                   <Expand aria-hidden="true" className="text-white" size={15} />
                 </div>
               </Link>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
