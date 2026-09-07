@@ -60,7 +60,7 @@ export default function GalleryTeaser() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 auto-rows-44 gap-0 overflow-hidden sm:auto-rows-52 [grid-template-areas:'a_a'_'b_c'_'d_e'_'f_f'_'g_h'] lg:grid-cols-4 lg:auto-rows-64 lg:[grid-template-areas:'a_a_b_c'_'a_a_d_e'_'f_f_g_h']">
+        <div className="grid grid-cols-2 auto-rows-44 gap-3 overflow-hidden sm:auto-rows-52 [grid-template-areas:'a_a'_'b_c'_'d_e'_'f_f'_'g_h'] lg:grid-cols-4 lg:auto-rows-64 lg:[grid-template-areas:'a_a_b_c'_'a_a_d_e'_'f_f_g_h']">
           {images.map((img, i) => (
             <div
               key={img.id}
