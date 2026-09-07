@@ -6,15 +6,15 @@ import { motion } from 'framer-motion';
 import { GALLERY_IMAGES } from '@/lib/data';
 import { ArrowRight, Expand } from 'lucide-react';
 
-const TILE_CLASS = [
-  'col-span-2 row-span-2 min-h-70 sm:min-h-100',
-  'min-h-40 sm:min-h-48',
-  'min-h-40 sm:min-h-48',
-  'row-span-2 min-h-70 sm:min-h-100',
-  'min-h-40 sm:min-h-48',
-  'min-h-40 sm:min-h-48',
-  'row-span-2 min-h-70 sm:min-h-100',
-  'col-span-2 min-h-40 sm:min-h-48',
+const TILE_AREA_CLASS = [
+  '[grid-area:a]',
+  '[grid-area:b]',
+  '[grid-area:c]',
+  '[grid-area:d]',
+  '[grid-area:e]',
+  '[grid-area:f]',
+  '[grid-area:g]',
+  '[grid-area:h]',
 ] as const;
 
 export default function GalleryTeaser() {
@@ -60,11 +60,11 @@ export default function GalleryTeaser() {
           </div>
         </div>
 
-        <div className="grid grid-flow-dense grid-cols-2 gap-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 auto-rows-44 gap-0 overflow-hidden sm:auto-rows-52 [grid-template-areas:'a_a'_'b_c'_'d_e'_'f_f'_'g_h'] lg:grid-cols-4 lg:auto-rows-64 lg:[grid-template-areas:'a_a_b_c'_'a_a_d_e'_'f_f_g_h']">
           {images.map((img, i) => (
             <div
               key={img.id}
-              className={`group relative overflow-hidden bg-slate-900 ${TILE_CLASS[i] ?? 'min-h-40 sm:min-h-48'}`}
+              className={`group relative overflow-hidden bg-slate-900 ${TILE_AREA_CLASS[i] ?? ''}`}
             >
               <Link
                 href="/gallery"
@@ -75,9 +75,8 @@ export default function GalleryTeaser() {
                   src={img.src}
                   alt={img.alt}
                   fill
-                  priority
                   sizes={
-                    i === 0 || i === 7
+                    i === 0 || i === 5
                       ? '(max-width: 1024px) 100vw, 50vw'
                       : '(max-width: 1024px) 50vw, 25vw'
                   }
